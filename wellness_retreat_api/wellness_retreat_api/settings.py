@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +26,7 @@ SECRET_KEY = 'django-insecure-4qx25(@$x3*s2tebqao#-fseov6z_^ae3*vm3jy2#g9vf35e#z
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://*.on-acorn.io', 'http://*.on-acorn.io']
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com', 'http://*.onrender.com']
 
 # Application definition
 
@@ -78,12 +77,12 @@ WSGI_APPLICATION = 'wellness_retreat_api.wsgi.application'
 
 DATABASES = {
    'default': {
-       'ENGINE': os.getenv('DB_ENGINE'),
-       'NAME': os.getenv('DB_NAME'),
-       'USER': os.getenv('DB_USER'),
-       'PASSWORD': os.getenv('DB_PASSWORD'),
-       'HOST': os.getenv('DB_HOST'),
-       'PORT': os.getenv('DB_PORT'), 
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'wellness_retreat',
+       'USER': 'wellness_retreat_owner',
+       'PASSWORD': 'Ide4aFWZyv8S',
+       'HOST': 'ep-icy-surf-a1jz78ef.ap-southeast-1.aws.neon.tech',
+       'PORT': '5432', 
    }
 }
 
