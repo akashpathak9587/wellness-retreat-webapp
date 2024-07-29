@@ -7,11 +7,14 @@ import axios from "axios";
 
 const App = () => {
   const [filteredEvents, setFilteredEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const fetchEvents = async () => {
-    const response = await axios.get('https://wellness-retreat-webapp-api.onrender.com/api/retreats/')
+    const response = await axios.get(import.meta.env.
+      VITE_DJANGO_API_URL);
     if(response.status === 200) {
       setFilteredEvents(response.data);
     }
+    setIsLoading(false);
 
   }
   useEffect(() => {
@@ -20,6 +23,7 @@ const App = () => {
 
   return (
     <>
+      {isLoading && <p className="loading">Loading...</p>}
       <Header />
       <Filter setFilteredEvents={setFilteredEvents} />
       <RetreatDisplay filteredEvents={filteredEvents}  />
