@@ -1,0 +1,24 @@
+.type-filter {
+    position: relative;
+    display: inline-block;
+}
+
+.type-filter select {
+    padding: 5px;
+    padding-right: 20px;
+    appearance: none;
+    margin-left: 15px;
+    position: relative;
+    color: #898989;
+    border-radius: 4px;
+}
+
+.type-filter::after {
+    content: '\25BC';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 10px;
+}

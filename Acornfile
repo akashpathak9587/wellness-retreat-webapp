@@ -1,0 +1,21 @@
+containers: web: {
+	build: images.app.containerBuild
+	ports: publish: "8000:8000/http"
+
+	if args.dev {dirs: "/app": "./wellness_retreat_api"}
+
+    env: {    
+        DB_ENGINE: "django.db.backends.postgresql",
+        DB_NAME: "wellness_retreat",
+        DB_USER: "wellness_retreat_owner",
+        DB_PASSWORD: "Ide4aFWZyv8S",
+        DB_HOST: "ep-icy-surf-a1jz78ef.ap-southeast-1.aws.neon.tech",
+        DB_PORT: "5432", 
+	}
+
+}
+
+images: app: containerBuild: {
+	context:    "./wellness_retreat_api"
+	dockerfile: "./wellness_retreat_api/Dockerfile"
+}

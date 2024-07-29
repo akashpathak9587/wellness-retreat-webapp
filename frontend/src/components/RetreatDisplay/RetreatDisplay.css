@@ -1,0 +1,58 @@
+.retreat-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: baseline;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .retreat-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .retreat-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 1px solid #000;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  background-color: #000;
+  color: white;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination button:not(:disabled):hover {
+  background-color: #000;
+  color: white;
+}
+
+.pagination span {
+  margin: 0 10px;
+  font-size: 16px;
+}
