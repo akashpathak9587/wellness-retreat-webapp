@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { retreatList } from "../lib/data";
 import Filter from "./components/Filter/Filter";
 import Header from "./components/Header/Header";
 import RetreatDisplay from "./components/RetreatDisplay/RetreatDisplay";
