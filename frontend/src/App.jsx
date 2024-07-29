@@ -6,10 +6,12 @@ import RetreatDisplay from "./components/RetreatDisplay/RetreatDisplay";
 import axios from "axios";
 
 const App = () => {
-  const [filteredEvents, setFilteredEvents] = useState(retreatList);
+  const [filteredEvents, setFilteredEvents] = useState([]);
   const fetchEvents = async () => {
     const response = await axios.get('https://wellness-retreat-webapp-api.onrender.com/api/retreats/')
-    console.log(response);
+    if(response.status === 200) {
+      setFilteredEvents(response.data);
+    }
 
   }
   useEffect(() => {
