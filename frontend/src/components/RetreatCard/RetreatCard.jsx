@@ -15,7 +15,7 @@ const RetreatCard = ({ image, title, description, date, location, price }) => {
         <div className="title">{title}</div>
               <div className="description" onClick={() => setShowDescription(!showDescription)}>{ !showDescription && description.length > 50 ? description.substring(0, 50) + "..." : description}</div>
         <div className="retreat-card-content-info">
-          <div className="date">{newDate}</div>
+          <div className="date">{new Date(date).toLocaleDateString()}</div>
           <div className="location">Location: {location}</div>
           <div className="retreat-card-content-info-price">
             <div className="condition">Price: ${price}</div>

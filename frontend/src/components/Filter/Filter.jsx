@@ -4,23 +4,33 @@ import { retreatList } from "../../../lib/data";
 import TypeFilter from "../TypeFilter/TypeFilter";
 import SearchFilter from "../SearchFilter/SearchFilter";
 
-const Filter = ({ setFilteredEvents }) => {
+const Filter = ({ setFilteredEvents, filteredEvents, allEvents }) => {
     const filterByDate = (start, end) => {
-        const events = retreatList.filter((event) => {
-            const eventDate = new Date(event.date * 1000);
-            return eventDate >= start && eventDate <= end;
+        if (!start || !end) {
+            setFilteredEvents(allEvents);
+            return;
+        }
+        const startDate = new Date(start).getTime();
+        const endDate = new Date(end).getTime();
+        const events = allEvents.filter((event) => {
+            const eventDate = new Date(event.date).getTime();
+            return eventDate >= startDate && eventDate <= endDate;
         })
         setFilteredEvents(events);
     }
     const filterByType = (type) => {
-        const events = retreatList.filter((event) => {
+        if (type === '') {
+            setFilteredEvents(allEvents);
+            return
+        }
+        const events = allEvents.filter((event) => {
             return event.tag.includes(type);
         })
         setFilteredEvents(events);
     }
 
     const filterBySearch = (text) => {
-        const events = retreatList.filter((event) => {
+        const events = allEvents.filter((event) => {
             return event.title.toLowerCase().includes(text.toLowerCase());
         })
         setFilteredEvents(events);
